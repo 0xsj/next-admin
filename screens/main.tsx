@@ -1,8 +1,10 @@
 import { View, Text } from "react-native";
+import { Box } from "../components/atoms";
+
 export default function MainScreen() {
   return (
-    <View style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
-      <Text>hello world</Text>
-    </View>
+    <Box>
+      <Text>yarp</Text>
+    </Box>
   );
 }

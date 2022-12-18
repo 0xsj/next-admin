@@ -1,15 +1,14 @@
 import { Button, StyleSheet } from "react-native";
 
 import EditScreenInfo from "../components/EditScreenInfo";
-import { Text, View } from "../components/Themed";
 import { RootTabScreenProps } from "../types";
+import { Box, Text } from "../components/atoms";
 
 export default function TabOneScreen({ navigation }: RootTabScreenProps<"TabOne">) {
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Tab One</Text>
+    <Box bg="$navbarBackground" flex={1} justifyContent="center" alignItems={"center"}>
       <Button title="go to tab one" onPress={() => navigation.navigate("Home")} />
-    </View>
+    </Box>
   );
 }
 

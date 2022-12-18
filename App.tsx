@@ -6,6 +6,8 @@ import useColorScheme from "./hooks/useColorScheme";
 import Navigation from "./navigation";
 import MainScreen from "./screens/main";
 import { ThemeProvider } from "@shopify/restyle";
+import light from "./theme/light";
+import dark from "./theme/dark";
 
 export default function App() {
   const isLoadingComplete = useCachedResources();
@@ -16,7 +18,7 @@ export default function App() {
   } else {
     return (
       <SafeAreaProvider>
-        <ThemeProvider theme={"light"}>
+        <ThemeProvider theme={dark}>
           <Navigation colorScheme={colorScheme} />
           <StatusBar />
         </ThemeProvider>

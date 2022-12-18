@@ -6,7 +6,7 @@ export type ThemeNames = "light" | "dark";
 export interface ThemeMeta {
   id: ThemeNames;
   name: string;
-  theme: any;
+  theme: Theme;
 }
 
 export const themes: readonly ThemeMeta[] = [

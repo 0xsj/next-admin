@@ -19,10 +19,6 @@ const p = {
 };
 
 const theme = createTheme({
-  colors: {
-    white: p.white,
-    black: p.black,
-  },
   spacing: {
     "0": 0,
     xs: 4,
@@ -37,7 +33,54 @@ const theme = createTheme({
     phone: 0,
     tablet: 768,
   },
-});
+  colors: {
+    white: p.white,
+    black: p.black,
+    red: p.red,
+    blue: p.blue,
+    yellow: p.yellow,
 
+    $primary: p.blue70,
+    $windowBackground: "#f0f0f0",
+    $background: p.paper10,
+    $foreground: p.paper900,
+    $navbarBackground: p.paper10,
+    $navbarBorderBottom: p.paper100,
+    $sidebarBackground: p.navy20,
+    $sidebarForeground: p.navy900,
+    $sidebarSeparator: p.paper00 + "20",
+    $headerBarBackground: p.paper20,
+    $fieldInputBackground: p.paper00,
+    $fieldInputPlaceholderTextColor: p.paper300,
+  },
+  borderRadii: {
+    xs: 4,
+    sm: 16,
+    md: 24,
+    lg: 64,
+    hg: 128,
+  },
+  statusBar: {
+    barStyle: "dark-content" as StatusBarStyle,
+  },
+  textVariants: {
+    defaults: {
+      color: "$foreground",
+      fontSize: 16,
+    },
+    sidebar: {
+      color: "$sidebarForeground",
+    },
+    navbar: {
+      fontSize: 20,
+    },
+  },
+  barVariants: {
+    headerBar: {
+      bg: "$headerBarBackground",
+      borderRadius: "hg",
+    },
+  },
+});
 export default theme;
 export type Theme = typeof theme;

@@ -1,10 +1,13 @@
-import { View } from "react-native";
-import { Box, Text } from "../components/atoms";
+import { Button } from "react-native";
+import { Box, Text, Container } from "../atoms";
+import { RootStackScreenProps } from "types";
+import { List } from "../components";
 
-export default function MainScreen() {
+export default function MainScreen({ navigation }: RootStackScreenProps<"Main">) {
   return (
-    <Box flex={1} justifyContent="center" alignItems="center">
-      <Text>yarp</Text>
-    </Box>
+    <Container justifyContent={"center"} alignItems={"center"}>
+      <Text>asdlfkjasdlfkj</Text>
+      <List />
+    </Container>
   );
 }

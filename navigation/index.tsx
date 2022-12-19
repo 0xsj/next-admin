@@ -22,6 +22,7 @@ import LinkingConfiguration from "./LinkingConfiguration";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import MainScreen from "../screens/main";
 import { Sidebar } from "../components/sidebar";
+import { CalendarScreen } from "../screens/calendar";
 export default function Navigation({ colorScheme }: { colorScheme: ColorSchemeName }) {
   return (
     <NavigationContainer
@@ -59,6 +60,7 @@ function RootNavigator() {
   return (
     <Stack.Navigator initialRouteName="Root">
       <Stack.Screen name="Home" component={Home} options={{ headerShown: false }} />
+      <Stack.Screen name="Calendar" component={CalendarScreen} options={{ headerShown: false }} />
     </Stack.Navigator>
   );
 }

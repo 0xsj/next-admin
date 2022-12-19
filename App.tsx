@@ -8,12 +8,10 @@ import MainScreen from "./screens/main";
 import { ThemeProvider } from "@shopify/restyle";
 import light from "./theme/light";
 import dark from "./theme/dark";
-import { DATA } from "./fixtures/index";
 
 export default function App() {
   const isLoadingComplete = useCachedResources();
   const colorScheme = useColorScheme();
-  console.log(DATA);
   if (!isLoadingComplete) {
     return null;
   } else {

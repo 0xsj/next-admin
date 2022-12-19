@@ -18,6 +18,7 @@ export type RootStackParamList = {
   Home: NavigatorScreenParams<HomeDrawerParamList> | undefined | any;
   Main: NavigatorScreenParams<HomeDrawerParamList> | undefined | any;
   Details: NavigatorScreenParams<HomeDrawerParamList> | undefined | any;
+  Calendar: NavigatorScreenParams<HomeDrawerParamList> | undefined | any;
 };
 
 export type RootStackScreenProps<Screen extends keyof RootStackParamList> = NativeStackScreenProps<

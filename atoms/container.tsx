@@ -10,7 +10,6 @@ export const Container: React.FC<Props> = (props) => {
   const { children } = props;
   return (
     <Box flex={1} {...props}>
-      <Text>Container</Text>
       {children}
     </Box>
   );

@@ -4,7 +4,7 @@ import { RootStackScreenProps } from "types";
 export const DetailsScreen = ({ navigation }: RootStackScreenProps<"Details">) => {
   return (
     <Box>
-      <Text>hi</Text>
+      <Text>Details</Text>
     </Box>
   );
 };

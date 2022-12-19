@@ -6,7 +6,14 @@ import { List } from "../components";
 export default function MainScreen({ navigation }: RootStackScreenProps<"Main">) {
   return (
     <Container justifyContent={"center"} alignItems={"center"}>
-      <Text>asdlfkjasdlfkj</Text>
+      <Box justifyContent={"center"} alignContent={"center"} flex={1} alignItems={"center"}>
+        <Text>Main Screen</Text>
+        <Button
+          color={"red"}
+          title="navigate to calendar screen"
+          onPress={() => navigation.navigate("Calendar")}
+        />
+      </Box>
       <List />
     </Container>
   );

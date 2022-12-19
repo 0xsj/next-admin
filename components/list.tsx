@@ -2,7 +2,6 @@ import { useCallback } from "react";
 import { View, Text, FlatListProps } from "react-native";
 import { ListItem } from ".";
 import { Note } from "structs";
-import { DATA } from "fixtures";
 import { createBox } from "@shopify/restyle";
 import { Theme } from "theme";
 import Animated, { AnimateProps } from "react-native-reanimated";
@@ -25,7 +24,7 @@ export const List: React.FC<Props> = (props) => {
   );
   return (
     <StyledFlatList
-      data={DATA}
+      data={[]}
       renderItem={renderItem}
       width={"100%"}
       keyExtractor={(item) => item.id}

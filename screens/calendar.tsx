@@ -7,25 +7,25 @@ export function CalendarScreen({ navigation }: RootStackScreenProps<"Calendar">)
   return (
     <Box flex={1} justifyContent={"center"} alignItems={"center"}>
       <Text>Calendar</Text>
-      <Box>
+      <Box p={"sm"}>
         <IconButton type={"add"} />
       </Box>
-      <Box>
+      <Box p={"sm"}>
         <IconButton type={"edit"} />
       </Box>
-      <Box>
+      <Box p={"sm"}>
         <IconButton type={"delete"} />
       </Box>
-      <Box>
+      <Box p={"sm"}>
         <IconButton type={"back"} />
       </Box>
-      <Box>
+      <Box p={"sm"}>
         <IconButton type={"close"} />
       </Box>
-      <Box>
+      <Box p={"sm"}>
         <IconButton type={"back"} />
       </Box>
-      <Box>
+      <Box p={"sm"}>
         <IconButton />
       </Box>
       <Box>

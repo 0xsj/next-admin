@@ -1,4 +1,4 @@
-import { View, Text, TouchableOpacity } from "react-native";
+import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
 import { Feather } from "@expo/vector-icons";
 export interface Props {
   onPress?: () => void;
@@ -31,9 +31,16 @@ export const IconButton: React.FC<Props> = (props) => {
 
   return (
     <TouchableOpacity>
-      <View>
+      <View style={[styles.container]}>
         <Feather name={getIcon()} size={24} color={"black"} />
       </View>
     </TouchableOpacity>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    padding: 10,
+    backgroundColor: "#2222",
+  },
+});

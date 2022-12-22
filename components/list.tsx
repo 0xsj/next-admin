@@ -17,7 +17,7 @@ export const StyledFlatList = createBox<Theme, AnimateProps<FlatListProps<Note>>
 export const List: React.FC<Props> = (props) => {
   const { onItemPress } = props;
   const renderItem = useCallback(
-    ({ item }: { item: Note }) => {
+    ({ item }: { item: any }) => {
       return <ListItem {...item} />;
     },
     [onItemPress]

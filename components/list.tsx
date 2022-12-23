@@ -25,6 +25,7 @@ export const List: React.FC<Props> = (props) => {
   return (
     <StyledFlatList
       data={[]}
+      contentInsetAdjustmentBehavior="automatic"
       renderItem={renderItem}
       width={"100%"}
       keyExtractor={(item) => item.id}

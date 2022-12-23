@@ -2,8 +2,10 @@ import { Button, View } from "react-native";
 import { Box, Text } from "../atoms";
 import { RootStackScreenProps } from "types";
 import { IconButton } from "../components";
+import { inboxMock } from "../fixtures/inbox";
 
 export function CalendarScreen({ navigation }: RootStackScreenProps<"Calendar">) {
+  console.log(inboxMock);
   return (
     <Box flex={1} justifyContent={"center"} alignItems={"center"}>
       <Text>Calendar</Text>

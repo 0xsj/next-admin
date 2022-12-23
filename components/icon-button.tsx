@@ -1,15 +1,18 @@
 import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
 import { Feather } from "@expo/vector-icons";
+import { Box } from "../atoms/box";
 export interface Props {
   onPress?: () => void;
   icon?: string | React.ReactNode;
   type?: IconType;
+  color?: string;
 }
 
 export type IconType = "add" | "edit" | "delete" | "back" | "close" | "mail";
 
 export const IconButton: React.FC<Props> = (props) => {
   const { onPress, icon, type } = props;
+
   const getIcon = () => {
     switch (type) {
       case "add":
@@ -30,18 +33,20 @@ export const IconButton: React.FC<Props> = (props) => {
   };
 
   return (
-    <TouchableOpacity>
-      <View style={[styles.container]}>
-        <Feather name={getIcon()} size={24} color={"black"} />
-      </View>
+    <TouchableOpacity style={[styles.icon]}>
+      <Box style={[styles.container]}>
+        <Feather name={getIcon()} size={24} color={"#fff"} />
+      </Box>
     </TouchableOpacity>
   );
 };
 
 const styles = StyleSheet.create({
+  wrapper: {},
   container: {
     padding: 10,
-    backgroundColor: "#2222",
+    backgroundColor: "blue",
     borderRadius: 50,
   },
+  icon: {},
 });

@@ -4,3 +4,4 @@ export { ListItem } from "./list-item";
 export { IconButton } from "./icon-button";
 export { Preview } from "./preview";
 export { Mail } from "./mail";
+export { HeaderBar } from "./header-bar";

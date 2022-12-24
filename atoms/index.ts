@@ -1,5 +1,6 @@
-import { Box } from "./box";
-import { Text } from "./text";
-import { Container } from "./container";
-import { StyledFlatList } from "./flat-list";
-export { Box, Text, Container, StyledFlatList };
+export { Box } from "./box";
+export { Text } from "./text";
+export { Container } from "./container";
+export { StyledFlatList } from "./flat-list";
+export { AnimatedBox, type AnimatedBoxProps } from "./animated-box";
+export { Bar } from "./bar";

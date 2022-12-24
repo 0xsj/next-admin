@@ -11,10 +11,10 @@ export const ListItem: React.FC<Props> = (props) => {
   return (
     <Box bg="$background" p={"xs"}>
       <Box>
-        <Text fontSize={12} fontWeight={"bold"}>
+        <Text ellipsizeMode="tail" numberOfLines={2} fontSize={12} fontWeight={"bold"}>
           {subject}
         </Text>
-        <Text color={"$graySecondary"} fontSize={11}>
+        <Text ellipsizeMode="tail" numberOfLines={2} color={"$graySecondary"} fontSize={11}>
           {preview}
         </Text>
       </Box>

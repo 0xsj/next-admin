@@ -30,6 +30,7 @@ export const theme: Theme = createTheme({
     $sidebarSeparator: p.slate900 + "20",
     $fieldInputBackground: p.slate00,
     $fieldInputPlaceholderTextColor: p.slate100,
+    $mailContent: p.slate40,
   },
   statusBar: {
     barStyle: "light-content" as StatusBarStyle,

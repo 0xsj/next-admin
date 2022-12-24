@@ -16,6 +16,7 @@ const p = {
   blue70: "#2185d0",
   navy20: "#171a21",
   navy900: "#b9babc",
+  systemGray2: "#636366",
 };
 
 const theme = createTheme({
@@ -52,6 +53,8 @@ const theme = createTheme({
     $headerBarBackground: p.paper20,
     $fieldInputBackground: p.paper00,
     $fieldInputPlaceholderTextColor: p.paper300,
+
+    $graySecondary: p.systemGray2,
   },
   borderRadii: {
     xs: 4,

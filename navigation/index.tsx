@@ -51,7 +51,7 @@ function Home() {
       }}
       drawerContent={Sidebar}
     >
-      <Drawer.Screen name="Main" component={MainScreen} options={{ headerShown: true }} />
+      <Drawer.Screen name="Main" component={MainScreen} options={{ headerShown: false }} />
     </Drawer.Navigator>
   );
 }

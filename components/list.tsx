@@ -1,16 +1,17 @@
 import { useCallback } from "react";
 import { View, Text, FlatListProps } from "react-native";
 import { ListItem } from ".";
-import { Note } from "structs";
+import { Note, Mail, InboxItem } from "structs";
 import { createBox } from "@shopify/restyle";
 import { Theme } from "theme";
 import Animated, { AnimateProps } from "react-native-reanimated";
+import { INBOX } from "../fixtures/inbox";
 
 export interface Props {
   onItemPress?: (refId: string) => void;
 }
 
-export const StyledFlatList = createBox<Theme, AnimateProps<FlatListProps<Note>>>(
+export const StyledFlatList = createBox<Theme, AnimateProps<FlatListProps<InboxItem>>>(
   Animated.FlatList
 );
 
@@ -24,7 +25,7 @@ export const List: React.FC<Props> = (props) => {
   );
   return (
     <StyledFlatList
-      data={[]}
+      data={INBOX}
       contentInsetAdjustmentBehavior="automatic"
       renderItem={renderItem}
       width={"100%"}

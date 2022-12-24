@@ -17,7 +17,7 @@ export default function App() {
   } else {
     return (
       <SafeAreaProvider>
-        <ThemeProvider theme={light}>
+        <ThemeProvider theme={dark}>
           <Navigation colorScheme={colorScheme} />
           <StatusBar />
         </ThemeProvider>

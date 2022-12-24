@@ -4,14 +4,29 @@ export interface Note {
   body: string;
 }
 
-export interface Inbox {
-  id: string | number;
-  user_id: string | number;
-  inbox: InboxItem[];
-}
 export interface InboxItem {
-  id: string | number;
+  id: string;
+  sender: string;
+  recipient: string;
+  subject: string | Mail["subject"];
+  preview: string;
+  dateCreated: string | any | Mail["dateCreated"];
+  seen: boolean;
+  type?: "notification" | "subscription";
+}
+
+export interface Mail {
+  id: string | number | any;
+  sender: string;
+  recipient: string | User;
   subject: string;
   body: string;
   dateCreated: any;
+  sign: string | any;
+}
+
+export interface User {
+  id: string;
+  name: string;
+  email: string;
 }

@@ -1,12 +1,20 @@
-import { InboxItem } from "structs";
+import { Mail, InboxItem } from "structs";
+import { faker } from "@faker-js/faker";
 
-export const inboxMock: InboxItem[] = [];
+export const INBOX: InboxItem[] = [];
 
-for (let i = 0; i < 10; i++) {
-  inboxMock.push({
-    id: i + 1,
-    subject: `Subject ${i + 1}`,
-    body: `Body of message ${i + 1}`,
-    dateCreated: new Date(),
-  });
+export function createInboxItems(): InboxItem {
+  return {
+    id: faker.datatype.uuid(),
+    sender: faker.internet.email(),
+    recipient: faker.internet.email(),
+    subject: faker.lorem.sentence(),
+    preview: faker.lorem.sentences(),
+    dateCreated: faker.date.past(),
+    seen: faker.datatype.boolean(),
+  };
 }
+
+Array.from({ length: 20 }).forEach(() => {
+  INBOX.push(createInboxItems());
+});

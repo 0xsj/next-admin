@@ -9,7 +9,7 @@ type Props = BoxProps<Theme> & {
 export const Container: React.FC<Props> = (props) => {
   const { children } = props;
   return (
-    <Box flex={1} {...props}>
+    <Box backgroundColor={"$sidebarBackground"} flex={1} {...props}>
       {children}
     </Box>
   );

@@ -6,12 +6,13 @@ export interface Props {
   icon?: string | React.ReactNode;
   type?: IconType;
   color?: string;
+  size?: IconSize;
 }
 
 export type IconType = "add" | "edit" | "delete" | "back" | "close" | "mail";
-
+export type IconSize = "s" | "m" | "l" | string | number;
 export const IconButton: React.FC<Props> = (props) => {
-  const { onPress, icon, type } = props;
+  const { onPress, icon, type, size = 24 } = props;
 
   const getIcon = () => {
     switch (type) {
@@ -32,10 +33,23 @@ export const IconButton: React.FC<Props> = (props) => {
     }
   };
 
+  const getIconSize = () => {
+    switch (size) {
+      case "s":
+        return 10;
+      case "m":
+        return 20;
+      case "l":
+        return 28;
+      default:
+        return 24;
+    }
+  };
+
   return (
     <TouchableOpacity style={[styles.icon]}>
-      <Box style={[styles.container]}>
-        <Feather name={getIcon()} size={24} color={"#fff"} />
+      <Box backgroundColor={"$primary"} style={[styles.container]}>
+        <Feather name={getIcon()} size={getIconSize()} color={"#fff"} />
       </Box>
     </TouchableOpacity>
   );
@@ -44,8 +58,8 @@ export const IconButton: React.FC<Props> = (props) => {
 const styles = StyleSheet.create({
   wrapper: {},
   container: {
-    padding: 10,
-    backgroundColor: "blue",
+    padding: 3,
+    // backgroundColor: "blue",
     borderRadius: 50,
   },
   icon: {},

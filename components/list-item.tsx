@@ -1,17 +1,23 @@
-import { Note } from "structs";
-import { View, Text, TouchableOpacity } from "react-native";
+import { Note, Mail, InboxItem } from "structs";
+import { View, TouchableOpacity } from "react-native";
+import { Box, Text } from "../atoms";
 
-export interface Props extends Note {
+export interface Props extends InboxItem {
   onPress?: (refId: string) => void;
 }
 
 export const ListItem: React.FC<Props> = (props) => {
-  const { onPress, id } = props;
+  const { onPress, id, preview, dateCreated, subject, sender, recipient } = props;
   return (
-    <View>
-      <TouchableOpacity>
-        <Text>List Item</Text>
-      </TouchableOpacity>
-    </View>
+    <Box bg="$background" p={"xs"}>
+      <Box>
+        <Text fontSize={12} fontWeight={"bold"}>
+          {subject}
+        </Text>
+        <Text color={"$graySecondary"} fontSize={11}>
+          {preview}
+        </Text>
+      </Box>
+    </Box>
   );
 };

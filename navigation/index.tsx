@@ -23,6 +23,7 @@ import { createDrawerNavigator } from "@react-navigation/drawer";
 import MainScreen from "../screens/main";
 import { Sidebar } from "../components/sidebar";
 import { CalendarScreen } from "../screens/calendar";
+import { PreviewScreen } from "../screens/preview";
 export default function Navigation({ colorScheme }: { colorScheme: ColorSchemeName }) {
   return (
     <NavigationContainer linking={LinkingConfiguration}>
@@ -57,6 +58,7 @@ function RootNavigator() {
   return (
     <Stack.Navigator initialRouteName="Root">
       <Stack.Screen name="Home" component={Home} options={{ headerShown: false }} />
+      <Stack.Screen name="Preview" component={PreviewScreen} options={{ headerShown: false }} />
       <Stack.Screen name="Calendar" component={CalendarScreen} options={{ headerShown: false }} />
     </Stack.Navigator>
   );

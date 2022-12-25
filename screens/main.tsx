@@ -18,6 +18,11 @@ export default function MainScreen({ navigation }: Props) {
   const sidebarToggle = useCallback(() => {
     navigation.toggleDrawer();
   }, [navigation]);
+  const handleInboxItemPress = useCallback((id: string) => {
+    navigation.navigate("Preview", { id });
+    console.log(id);
+  }, []);
+
   return (
     <Container>
       <Container>
@@ -25,6 +30,7 @@ export default function MainScreen({ navigation }: Props) {
           onItemSwipeLeft={() => console.log("222222")}
           contentInsetTop={headerBarHeight}
           onScroll={handleScroll}
+          onItemPress={handleInboxItemPress}
         />
         <HeaderBar style={headerBarStyle} onLayout={handleNoteListLayout}>
           <TouchableOpacity onPress={sidebarToggle} m="xs" p="xs" rippleBorderless>

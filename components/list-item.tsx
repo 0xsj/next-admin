@@ -5,7 +5,7 @@ import { SwipeableView, BackViewProps } from "./swipeable-view";
 import { ListActionView } from "./list-action";
 
 export interface Props extends InboxItem {
-  onPress?: (id: string) => void;
+  onPress: (id: string) => void;
   onSwipeLeft?: (id: string, done: () => void) => void;
 }
 
@@ -13,6 +13,7 @@ export const ListItem: React.FC<Props> = memo((props) => {
   const { onPress, id, preview, dateCreated, subject, sender, recipient, onSwipeLeft } = props;
   const handlePress = useCallback(() => {
     // onItemPress(id);
+    onPress(id);
   }, [id, onPress]);
 
   const handleSwipeLeft = useCallback(

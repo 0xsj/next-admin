@@ -6,6 +6,9 @@
     "module": "commonjs",
     "moduleResolution": "node",
     "baseUrl": ".",
+    "paths": {
+      "@/*": ["*"]
+    },
     "resolveJsonModule": true,
     "allowJs": true,
     "noEmit": true,

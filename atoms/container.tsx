@@ -1,4 +1,4 @@
-import { Box, Text } from ".";
+import { Box } from "./box";
 import { BoxProps } from "@shopify/restyle";
 import { Theme } from "theme";
 

@@ -1,5 +1,5 @@
 import React from "react";
-import { Pressable, PressableProps } from ".";
+import { Pressable, PressableProps } from "./pressable";
 import { Platform } from "react-native";
 import {
   BackgroundColorProps,

@@ -9,7 +9,7 @@ export function PreviewScreen({ navigation, route }: Props) {
     <Box flex={1} alignItems="center" justifyContent={"center"}>
       <Text>detail screen</Text>
       <Text>{JSON.stringify(route.params)}</Text>
-      <TouchableOpacity>
+      <TouchableOpacity onPress={() => navigation.navigate("Main")}>
         <Text>Go back</Text>
       </TouchableOpacity>
     </Box>

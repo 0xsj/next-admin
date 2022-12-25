@@ -1,4 +1,4 @@
-import { AnimatedBox, Box } from "../atoms";
+import { AnimatedBox, Box } from "@/atoms";
 import React from "react";
 import { SharedValue, useAnimatedStyle } from "react-native-reanimated";
 import { Feather } from "@expo/vector-icons";

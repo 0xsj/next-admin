@@ -1,4 +1,4 @@
-import { Box, AnimatedBox, AnimatedBoxProps } from "../atoms";
+import { Box, AnimatedBox, AnimatedBoxProps } from "@/atoms";
 import React, { forwardRef, useCallback, useImperativeHandle } from "react";
 import { Dimensions } from "react-native";
 import {

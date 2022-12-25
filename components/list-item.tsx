@@ -1,5 +1,5 @@
 import { InboxItem } from "structs";
-import { Box, Text, TouchableOpacity } from "../atoms";
+import { Box, Text, TouchableOpacity } from "@/atoms";
 import { memo, useCallback } from "react";
 import { SwipeableView, BackViewProps } from "./swipeable-view";
 import { ListActionView } from "./list-action";

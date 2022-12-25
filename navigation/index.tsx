@@ -3,28 +3,19 @@
  * https://reactnavigation.org/docs/getting-started
  *
  */
+import * as React from "react";
 import { FontAwesome } from "@expo/vector-icons";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { NavigationContainer, DefaultTheme, DarkTheme } from "@react-navigation/native";
+import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import * as React from "react";
-import { ColorSchemeName, Pressable } from "react-native";
-
-import Colors from "../constants/Colors";
-import { useColorScheme } from "../hooks/useColorScheme";
-import {
-  HomeDrawerParamList,
-  RootStackParamList,
-  RootTabParamList,
-  RootTabScreenProps,
-} from "../types";
+import { ColorSchemeName } from "react-native";
+import { HomeDrawerParamList, RootStackParamList, RootTabParamList } from "@/types";
 import LinkingConfiguration from "./LinkingConfiguration";
 import { createDrawerNavigator } from "@react-navigation/drawer";
-import MainScreen from "../screens/main";
-import { Sidebar } from "../components/sidebar";
-import { CalendarScreen } from "../screens/calendar";
-import { PreviewScreen } from "../screens/preview";
-export default function Navigation({ colorScheme }: { colorScheme: ColorSchemeName }) {
+import { Sidebar } from "@/components/sidebar";
+import { CalendarScreen, PreviewScreen, MainScreen } from "@/screens";
+
+export default function Navigation({}: { colorScheme: ColorSchemeName }) {
   return (
     <NavigationContainer linking={LinkingConfiguration}>
       <RootNavigator />
@@ -60,6 +51,7 @@ function RootNavigator() {
       <Stack.Screen name="Home" component={Home} options={{ headerShown: false }} />
       <Stack.Screen name="Preview" component={PreviewScreen} options={{ headerShown: false }} />
       <Stack.Screen name="Calendar" component={CalendarScreen} options={{ headerShown: false }} />
+      <Stack.Screen name="Test" component={Home} options={{ headerShown: false }} />
     </Stack.Navigator>
   );
 }

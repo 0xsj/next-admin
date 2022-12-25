@@ -1,8 +1,7 @@
-import { Button, View } from "react-native";
-import { Box, Text, Container } from "../atoms";
+import { Button } from "react-native";
+import { Box, Text, Container } from "@/atoms";
 import { RootStackScreenProps } from "types";
-import { IconButton } from "../components";
-import { INBOX } from "../fixtures/inbox";
+import { IconButton } from "@/components";
 
 export function CalendarScreen({ navigation }: RootStackScreenProps<"Calendar">) {
   return (

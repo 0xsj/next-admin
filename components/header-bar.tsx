@@ -1,5 +1,5 @@
 import React, { ReactNode } from "react";
-import { AnimatedBoxProps, AnimatedBox, Bar } from "../atoms";
+import { AnimatedBoxProps, AnimatedBox, Bar } from "@/atoms";
 
 export const HeaderBar: React.FC<AnimatedBoxProps> = ({ children, ...rest }) => {
   return (

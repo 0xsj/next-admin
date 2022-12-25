@@ -1,6 +1,6 @@
 import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
 import { Feather } from "@expo/vector-icons";
-import { Box } from "../atoms/box";
+import { Box } from "@/atoms";
 export interface Props {
   onPress?: () => void;
   icon?: string | React.ReactNode;

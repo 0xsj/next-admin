@@ -1,5 +1,5 @@
-import { Box, Text, Container } from "../atoms";
-import { MAIL } from "../fixtures/mail";
+import { Box, Text, Container } from "@/atoms";
+import { MAIL } from "@/fixtures/mail";
 
 type Props = {};
 

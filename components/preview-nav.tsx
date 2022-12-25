@@ -1,5 +1,5 @@
 import { Feather } from "@expo/vector-icons";
-import { Box, Container, Text } from "../atoms";
+import { Box, Container, Text } from "@/atoms";
 import { IconButton } from "./icon-button";
 export const PreviewNav: React.FC = () => {
   return (

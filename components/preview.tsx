@@ -1,4 +1,4 @@
-import { Box, Text, Container } from "../atoms";
+import { Box, Text, Container } from "@/atoms";
 import { Mail } from "./mail";
 import { PreviewNav } from "./preview-nav";
 export const Preview: React.FC = () => {

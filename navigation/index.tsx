@@ -11,7 +11,7 @@ import * as React from "react";
 import { ColorSchemeName, Pressable } from "react-native";
 
 import Colors from "../constants/Colors";
-import useColorScheme from "../hooks/useColorScheme";
+import { useColorScheme } from "../hooks/useColorScheme";
 import {
   HomeDrawerParamList,
   RootStackParamList,
@@ -25,10 +25,7 @@ import { Sidebar } from "../components/sidebar";
 import { CalendarScreen } from "../screens/calendar";
 export default function Navigation({ colorScheme }: { colorScheme: ColorSchemeName }) {
   return (
-    <NavigationContainer
-      linking={LinkingConfiguration}
-      theme={colorScheme === "dark" ? DarkTheme : DefaultTheme}
-    >
+    <NavigationContainer linking={LinkingConfiguration}>
       <RootNavigator />
     </NavigationContainer>
   );

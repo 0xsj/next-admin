@@ -15,6 +15,6 @@ export function createInboxItems(): InboxItem {
   };
 }
 
-Array.from({ length: 20 }).forEach(() => {
+Array.from({ length: 50 }).forEach(() => {
   INBOX.push(createInboxItems());
 });

@@ -28,6 +28,7 @@ import {
  */
 
 type SwipeLeftCallback = () => any;
+type SwipeRightCallback = () => any;
 
 export interface BackViewProps {
   progress: Readonly<SharedValue<number>>;
@@ -37,6 +38,7 @@ interface Props extends Pick<PanGestureHandlerProps, "simultaneousHandlers">, An
   children: React.ReactNode;
   backView?: React.ReactNode | React.FC<BackViewProps>;
   onSwipeLeft?: (conceal: SwipeLeftCallback) => any;
+  onSwipeRight?: (conceal: SwipeRightCallback) => any;
   revealed?: boolean;
 }
 
@@ -47,8 +49,9 @@ interface SwipeableViewHandle {
 const { width: SCREEN_WIDTH } = Dimensions.get("window");
 const SWIPE_THREASHOLD = -0.2;
 
-const SwipeableView = forwardRef<SwipeableViewHandle, Props>((props, ref) => {
-  const { children, backView, onSwipeLeft, simultaneousHandlers, ...boxProps } = props;
+export const SwipeableView = forwardRef<SwipeableViewHandle, Props>((props, ref) => {
+  const { children, backView, onSwipeLeft, onSwipeRight, simultaneousHandlers, ...boxProps } =
+    props;
   const translateX = useSharedValue(0);
 
   const invokeSwipeLeft = useCallback(() => {
@@ -58,6 +61,36 @@ const SwipeableView = forwardRef<SwipeableViewHandle, Props>((props, ref) => {
       });
     }
   }, [onSwipeLeft]);
+  const invokeSwipeRight = useCallback(() => {
+    if (onSwipeRight) {
+      onSwipeRight(() => {
+        translateX.value = withTiming(0);
+      });
+    }
+  }, [onSwipeRight]);
+
+  //problematic
+
+  // const panGesture = useAnimatedGestureHandler<PanGestureHandlerGestureEvent>({
+  //   onActive: (event) => {
+  //     const x = interpolate(event.translationX, [-SCREEN_WIDTH, 0], [-1, 1]);
+  //     translateX.value = Math.max(-1, Math.min(1, x));
+  //   },
+  //   onEnd: () => {
+  //     const shouldBeDismissed = Math.abs(translateX.value) > SWIPE_THREASHOLD;
+  //     if (shouldBeDismissed) {
+  //       if (translateX.value < 0) {
+  //         translateX.value = withTiming(-1);
+  //         runOnJS(invokeSwipeLeft)();
+  //       } else {
+  //         translateX.value = withTiming(1);
+  //         runOnJS(invokeSwipeRight)();
+  //       }
+  //     } else {
+  //       translateX.value = withTiming(0);
+  //     }
+  //   },
+  // });
 
   const panGesture = useAnimatedGestureHandler<PanGestureHandlerGestureEvent>({
     onActive: (event) => {
@@ -74,6 +107,15 @@ const SwipeableView = forwardRef<SwipeableViewHandle, Props>((props, ref) => {
       }
     },
   });
+
+  // problematic
+  // const facadeStyle = useAnimatedStyle(() => ({
+  //   transform: [
+  //     {
+  //       translateX: interpolate(translateX.value, [-1, 1], [-SCREEN_WIDTH, SCREEN_WIDTH]),
+  //     },
+  //   ],
+  // }));
 
   const facadeStyle = useAnimatedStyle(() => ({
     transform: [
@@ -110,5 +152,3 @@ const SwipeableView = forwardRef<SwipeableViewHandle, Props>((props, ref) => {
     </AnimatedBox>
   );
 });
-
-export default SwipeableView;

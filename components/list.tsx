@@ -12,6 +12,7 @@ export interface Props {
   contentInsetTop?: number;
   onItemPress?: (refId: string) => void;
   onScroll?: (event: NativeSyntheticEvent<NativeScrollEvent>) => void;
+  onItemSwipeLeft: (refId: string, cancel: () => void) => void;
 }
 
 export const StyledFlatList = createBox<Theme, AnimateProps<FlatListProps<InboxItem>>>(
@@ -19,9 +20,9 @@ export const StyledFlatList = createBox<Theme, AnimateProps<FlatListProps<InboxI
 );
 
 export const List: React.FC<Props> = (props) => {
-  const { onItemPress, contentInsetTop, onScroll } = props;
+  const { onItemPress, contentInsetTop, onScroll, onItemSwipeLeft } = props;
   const renderItem = useCallback(({ item }: { item: any }) => {
-    return <ListItem {...item} />;
+    return <ListItem onPress={onItemPress} onSwipeLeft={onItemSwipeLeft} {...item} />;
   }, []);
   return (
     <StyledFlatList

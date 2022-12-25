@@ -21,7 +21,11 @@ export default function MainScreen({ navigation }: Props) {
   return (
     <Container>
       <Container>
-        <List contentInsetTop={headerBarHeight} onScroll={handleScroll} />
+        <List
+          onItemSwipeLeft={() => console.log("222222")}
+          contentInsetTop={headerBarHeight}
+          onScroll={handleScroll}
+        />
         <HeaderBar style={headerBarStyle} onLayout={handleNoteListLayout}>
           <TouchableOpacity onPress={sidebarToggle} m="xs" p="xs" rippleBorderless>
             <Feather name="menu" size={22} color={"black"} />

@@ -1,16 +1,29 @@
 import { Button } from "react-native";
 import { Box, Text, Container, TouchableOpacity } from "../atoms";
-import { RootStackScreenProps } from "types";
+import { HomeDrawerParamList, RootStackParamList, RootStackScreenProps } from "types";
 import { HeaderBar, List, Preview, Sidebar } from "../components";
 import { Feather } from "@expo/vector-icons";
+import { DrawerScreenProps } from "@react-navigation/drawer";
+import { CompositeScreenProps } from "@react-navigation/native";
+import { NativeStackScreenProps } from "@react-navigation/native-stack";
+import { useCallback } from "react";
+import { useStickyHeader } from "../hooks";
 
-export default function MainScreen({ navigation }: RootStackScreenProps<"Main">) {
+type Props = CompositeScreenProps<
+  DrawerScreenProps<HomeDrawerParamList, "Main">,
+  NativeStackScreenProps<RootStackParamList>
+>;
+export default function MainScreen({ navigation }: Props) {
+  const { handleNoteListLayout, handleScroll, headerBarHeight, headerBarStyle } = useStickyHeader();
+  const sidebarToggle = useCallback(() => {
+    navigation.toggleDrawer();
+  }, [navigation]);
   return (
     <Container>
       <Container>
-        <List />
-        <HeaderBar>
-          <TouchableOpacity m="xs" p="xs" rippleBorderless>
+        <List contentInsetTop={headerBarHeight} onScroll={handleScroll} />
+        <HeaderBar style={headerBarStyle} onLayout={handleNoteListLayout}>
+          <TouchableOpacity onPress={sidebarToggle} m="xs" p="xs" rippleBorderless>
             <Feather name="menu" size={22} color={"black"} />
           </TouchableOpacity>
           <Box flex={1} alignItems={"center"}>

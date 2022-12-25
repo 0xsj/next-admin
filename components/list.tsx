@@ -1,14 +1,17 @@
 import { useCallback } from "react";
-import { View, Text, FlatListProps } from "react-native";
+import { View, Text, FlatListProps, NativeSyntheticEvent, NativeScrollEvent } from "react-native";
 import { ListItem } from ".";
 import { Note, Mail, InboxItem } from "structs";
 import { createBox } from "@shopify/restyle";
 import { Theme } from "theme";
 import Animated, { AnimateProps } from "react-native-reanimated";
 import { INBOX } from "../fixtures/inbox";
+import { Box } from "../atoms";
 
 export interface Props {
+  contentInsetTop?: number;
   onItemPress?: (refId: string) => void;
+  onScroll?: (event: NativeSyntheticEvent<NativeScrollEvent>) => void;
 }
 
 export const StyledFlatList = createBox<Theme, AnimateProps<FlatListProps<InboxItem>>>(
@@ -16,13 +19,10 @@ export const StyledFlatList = createBox<Theme, AnimateProps<FlatListProps<InboxI
 );
 
 export const List: React.FC<Props> = (props) => {
-  const { onItemPress } = props;
-  const renderItem = useCallback(
-    ({ item }: { item: any }) => {
-      return <ListItem {...item} />;
-    },
-    [onItemPress]
-  );
+  const { onItemPress, contentInsetTop, onScroll } = props;
+  const renderItem = useCallback(({ item }: { item: any }) => {
+    return <ListItem {...item} />;
+  }, []);
   return (
     <StyledFlatList
       data={INBOX}
@@ -30,6 +30,13 @@ export const List: React.FC<Props> = (props) => {
       renderItem={renderItem}
       width={"100%"}
       keyExtractor={(item) => item.id}
+      onScroll={onScroll}
+      scrollEventThrottle={16}
+      ListHeaderComponent={
+        <Box width={"100%"} height={contentInsetTop}>
+          {/* <Text>asdfasdf</Text> */}
+        </Box>
+      }
     />
   );
 };

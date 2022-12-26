@@ -7,3 +7,4 @@ export { HeaderBar } from "./header-bar";
 export { StatusBar } from "./status-bar";
 export { SwipeableView, type BackViewProps } from "./swipeable-view";
 export { List } from "./list";
+export { UserAvatar } from "./user-avatar";

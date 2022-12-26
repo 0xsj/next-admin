@@ -3,6 +3,7 @@ import { Box, Text, TouchableOpacity } from "@/atoms";
 import { memo, useCallback } from "react";
 import { SwipeableView, BackViewProps } from "./swipeable-view";
 import { ListActionView } from "./list-action";
+import { UserAvatar } from "./user-avatar";
 
 export interface Props extends InboxItem {
   onPress: (id: string) => void;
@@ -29,18 +30,25 @@ export const ListItem: React.FC<Props> = memo((props) => {
   );
   return (
     <SwipeableView bg="yellow" onSwipeLeft={handleSwipeLeft} backView={renderBackView}>
-      <Box bg="$background">
-        <TouchableOpacity bg="$background" px="lg" py="sm" onPress={handlePress}>
-          <Box>
-            <Text ellipsizeMode="tail" numberOfLines={2} fontSize={12} fontWeight={"bold"}>
-              {subject}
-            </Text>
-            <Text ellipsizeMode="tail" numberOfLines={2} color={"$graySecondary"} fontSize={11}>
-              {preview}
-            </Text>
-          </Box>
-        </TouchableOpacity>
-      </Box>
+      <TouchableOpacity
+        flexDirection={"row"}
+        bg="$background"
+        px="lg"
+        py="sm"
+        onPress={handlePress}
+      >
+        <Box justifyContent={"center"} alignItems={"center"} px={"sm"}>
+          <UserAvatar />
+        </Box>
+        <Box overflow={"hidden"}>
+          <Text ellipsizeMode="tail" numberOfLines={2} fontSize={12} fontWeight={"bold"}>
+            {sender}
+          </Text>
+          <Text ellipsizeMode="tail" numberOfLines={2} color={"$graySecondary"} fontSize={11}>
+            {preview}
+          </Text>
+        </Box>
+      </TouchableOpacity>
     </SwipeableView>
   );
 });

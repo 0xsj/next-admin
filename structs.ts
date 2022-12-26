@@ -7,6 +7,7 @@ export interface Note {
 export interface InboxItem {
   id: string;
   sender: string;
+  senderName: string;
   recipient: string;
   subject: string | Mail["subject"];
   preview: string;

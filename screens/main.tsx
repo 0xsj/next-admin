@@ -18,7 +18,7 @@ export function MainScreen({ navigation }: Props) {
     navigation.toggleDrawer();
   }, [navigation]);
   const handleInboxItemPress = useCallback((id: string) => {
-    navigation.navigate("Test", { id });
+    navigation.navigate("Preview", { id });
     console.log(id);
   }, []);
 

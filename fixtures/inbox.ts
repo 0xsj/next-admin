@@ -7,6 +7,7 @@ export function createInboxItems(): InboxItem {
   return {
     id: faker.datatype.uuid(),
     sender: faker.internet.email(),
+    senderName: faker.name.fullName(),
     recipient: faker.internet.email(),
     subject: faker.lorem.sentence(),
     preview: faker.lorem.sentences(),

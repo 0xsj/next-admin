@@ -40,7 +40,7 @@ export const ListItem: React.FC<Props> = memo((props) => {
         <Box justifyContent={"center"} alignItems={"center"} px={"sm"}>
           <UserAvatar />
         </Box>
-        <Box overflow={"hidden"}>
+        <Box width={"80%"} overflow={"hidden"}>
           <Text ellipsizeMode="tail" numberOfLines={2} fontSize={12} fontWeight={"bold"}>
             {sender}
           </Text>

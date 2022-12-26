@@ -2,6 +2,7 @@ export interface Note {
   id: string;
   title: string;
   body: string;
+  dateCreated: string;
 }
 
 export interface InboxItem {
@@ -28,6 +29,6 @@ export interface Mail {
 
 export interface User {
   id: string;
-  name: string;
+  fullName: string;
   email: string;
 }

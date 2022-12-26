@@ -4,8 +4,8 @@ import { PreviewNav } from "./preview-nav";
 export const Preview: React.FC = () => {
   return (
     <Container>
-      <PreviewNav />
-      <Mail />
+      {/* <PreviewNav /> */}
+      {/* <Mail /> */}
     </Container>
   );
 };

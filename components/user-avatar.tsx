@@ -1,4 +1,6 @@
 import { Box, Text } from "@/atoms";
+import { User } from "@/structs";
+
 export const UserAvatar: React.FC = (props) => {
   return (
     <Box

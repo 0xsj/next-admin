@@ -1,4 +1,4 @@
-import { InboxItem } from "structs";
+import { InboxItem, Mail } from "structs";
 import { Box, Text, TouchableOpacity } from "@/atoms";
 import { memo, useCallback } from "react";
 import { SwipeableView, BackViewProps } from "./swipeable-view";
@@ -6,15 +6,22 @@ import { ListActionView } from "./list-action";
 import { UserAvatar } from "./user-avatar";
 
 export interface Props extends InboxItem {
-  onPress: (id: string) => void;
+  onPress: (item: any) => void;
   onSwipeLeft?: (id: string, done: () => void) => void;
 }
 
 export const ListItem: React.FC<Props> = memo((props) => {
   const { onPress, id, preview, dateCreated, subject, sender, recipient, onSwipeLeft } = props;
   const handlePress = useCallback(() => {
-    // onItemPress(id);
-    onPress(id);
+    const message = {
+      id: id,
+      dateCreated: dateCreated,
+      subject: subject,
+      sender: sender,
+      recipient: recipient,
+      preview: preview,
+    };
+    onPress(message);
   }, [id, onPress]);
 
   const handleSwipeLeft = useCallback(

@@ -6,6 +6,7 @@ import { Box, Text, TouchableOpacity, Container } from "@/atoms";
 type Props = NativeStackScreenProps<RootStackParamList, "Preview">;
 
 export function PreviewScreen({ navigation, route }: Props) {
+  console.log(route);
   return (
     <Container>
       <Box flex={1} alignItems="center" justifyContent={"center"}>

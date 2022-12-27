@@ -13,9 +13,15 @@ export const Sidebar: React.FC = () => {
           {menuItems.map((item, index) => {
             const iconName = item.icon as MenuItems;
             return (
-              <Box key={`${item.id}-${index}`}>
-                <Feather name={iconName} color={item.color} size={16} />
-                <Text>{item.label}</Text>
+              <Box
+                alignItems={"baseline"}
+                width={"100%"}
+                padding={"sm"}
+                flexDirection={"row"}
+                key={`${item.id}-${index}`}
+              >
+                <Feather name={iconName} color={item.color} size={20} />
+                <Text padding={"lg"}>{item.label}</Text>
               </Box>
             );
           })}

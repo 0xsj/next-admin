@@ -14,10 +14,11 @@ import { Theme } from "theme";
 import Animated, { AnimateProps } from "react-native-reanimated";
 import { INBOX } from "@/fixtures/inbox";
 import { Box } from "@/atoms";
-
-export const StyledFlatList = createBox<Theme, AnimateProps<FlatListProps<InboxItem>>>(
-  Animated.FlatList
-);
+import { ListHeader } from "./list-header";
+export const StyledFlatList = createBox<
+  Theme,
+  AnimateProps<FlatListProps<InboxItem>>
+>(Animated.FlatList);
 
 export interface Props {
   contentInsetTop?: number;
@@ -30,13 +31,19 @@ export const List: React.FC<Props> = (props) => {
   const { onItemPress, contentInsetTop, onScroll, onItemSwipeLeft } = props;
   const renderItem = useCallback(
     ({ item }: { item: any }) => {
-      return <ListItem onPress={onItemPress} onSwipeLeft={onItemSwipeLeft} {...item} />;
+      return (
+        <ListItem
+          onPress={onItemPress}
+          onSwipeLeft={onItemSwipeLeft}
+          {...item}
+        />
+      );
     },
     [onItemPress, onItemSwipeLeft]
   );
   return (
     <>
-      <Button title="test" />
+      <ListHeader />
       <StyledFlatList
         data={INBOX}
         contentInsetAdjustmentBehavior="automatic"

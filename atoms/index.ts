@@ -6,3 +6,4 @@ export { AnimatedBox, type AnimatedBoxProps } from "./animated-box";
 export { Bar } from "./bar";
 export { Pressable, type PressableProps } from "./pressable";
 export { Touchable, TouchableOpacity } from "./touchable";
+export { ScrollView } from "./scrollview";

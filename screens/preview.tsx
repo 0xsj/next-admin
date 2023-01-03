@@ -6,13 +6,13 @@ import { Box, Text, TouchableOpacity, Container } from "@/atoms";
 type Props = NativeStackScreenProps<RootStackParamList, "Preview">;
 
 export function PreviewScreen({ navigation, route }: Props) {
-  const { sender } = route.params;
+  console.log(route.params);
   return (
     <Container>
       <Box flex={1} alignItems="center" justifyContent={"center"}>
         <Text>{JSON.stringify(route.params)}</Text>
         <TouchableOpacity onPress={() => navigation.navigate("Main")}>
-          {/* <Text>Go back</Text> */}
+          <Text>Go back</Text>
         </TouchableOpacity>
       </Box>
     </Container>

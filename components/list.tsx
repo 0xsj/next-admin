@@ -15,35 +15,29 @@ import Animated, { AnimateProps } from "react-native-reanimated";
 import { INBOX } from "@/fixtures/inbox";
 import { Box } from "@/atoms";
 import { ListHeader } from "./list-header";
-export const StyledFlatList = createBox<
-  Theme,
-  AnimateProps<FlatListProps<InboxItem>>
->(Animated.FlatList);
+export const StyledFlatList = createBox<Theme, AnimateProps<FlatListProps<InboxItem>>>(
+  Animated.FlatList
+);
 
 export interface Props {
   contentInsetTop?: number;
   onItemPress?: (id: string) => void;
   onScroll?: (event: NativeSyntheticEvent<NativeScrollEvent>) => void;
   onItemSwipeLeft: (id: string, cancel: () => void) => void;
+  ListHeader?: React.ComponentType<any> | null | undefined;
 }
 
 export const List: React.FC<Props> = (props) => {
   const { onItemPress, contentInsetTop, onScroll, onItemSwipeLeft } = props;
   const renderItem = useCallback(
     ({ item }: { item: any }) => {
-      return (
-        <ListItem
-          onPress={onItemPress}
-          onSwipeLeft={onItemSwipeLeft}
-          {...item}
-        />
-      );
+      return <ListItem onPress={onItemPress} onSwipeLeft={onItemSwipeLeft} {...item} />;
     },
     [onItemPress, onItemSwipeLeft]
   );
   return (
     <>
-      <ListHeader />
+      {/* <ListHeader /> */}
       <StyledFlatList
         data={INBOX}
         contentInsetAdjustmentBehavior="automatic"
@@ -52,7 +46,14 @@ export const List: React.FC<Props> = (props) => {
         keyExtractor={(item) => item.id}
         onScroll={onScroll}
         scrollEventThrottle={16}
-        ListHeaderComponent={<Box width={"100%"} height={contentInsetTop} />}
+        ListHeaderComponent={
+          <Box>
+            <>
+              <Box width={"100%"} height={contentInsetTop} />
+              {ListHeader && <ListHeader />}
+            </>
+          </Box>
+        }
       />
     </>
   );

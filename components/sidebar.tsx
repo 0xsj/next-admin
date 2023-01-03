@@ -8,20 +8,27 @@ export type MenuItems = "inbox" | "send" | "edit" | "star" | "send" | "trash-2";
 export const Sidebar: React.FC = () => {
   return (
     <Container>
-      <Box flex={1}>
+      <Box>
         <SafeAreaView>
+          <Text fontSize={14} padding="sm">
+            Folders
+          </Text>
+
           {menuItems.map((item, index) => {
             const iconName = item.icon as MenuItems;
             return (
               <Box
-                alignItems={"baseline"}
+                alignItems={"center"}
                 width={"100%"}
-                padding={"sm"}
                 flexDirection={"row"}
                 key={`${item.id}-${index}`}
               >
-                <Feather name={iconName} color={item.color} size={20} />
-                <Text padding={"lg"}>{item.label}</Text>
+                <Box ml="md">
+                  <Feather name={iconName} color={item.color} size={20} />
+                </Box>
+                <Text fontSize={14} fontWeight="500" padding="sm">
+                  {item.label}
+                </Text>
               </Box>
             );
           })}

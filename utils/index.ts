@@ -17,12 +17,12 @@ export const menuItems = [
     label: "Drafts",
     color: "gray",
   },
-  {
-    id: 4,
-    icon: "star",
-    label: "Starred",
-    color: "yellow",
-  },
+  // {
+  //   id: 4,
+  //   icon: "star",
+  //   label: "Starred",
+  //   color: "yellow",
+  // },
   {
     id: 5,
     icon: "send",

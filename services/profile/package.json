@@ -1,10 +1,10 @@
 {
-  "name": "authentication",
+  "name": "profile",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build:proto": "proto-loader-gen-types --longs=String --enums=String --defaults --oneofs --grpcLib=@grpc/grpc-js --outDir=src/generated ../../proto/authentication.proto",
+    "build:proto": "proto-loader-gen-types --longs=String --enums=String --defaults --oneofs --grpcLib=@grpc/grpc-js --outDir=src/generated ../../proto/profile.proto",
     "protoc-debug": "npx rimraf src/generated && npx mkdirp src/generated && npm run protoc",
     "start": "nodemon",
     "test": "echo \"Error: no test specified\" && exit 1"

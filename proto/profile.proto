@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+package profile;
+
+message Profile {
+  string id = 1;
+  string name = 2;
+  string bio = 3;
+}
+
+message CreateProfileRequest { Profile bio = 1; }
+
+message CreateProfileResponse { string id = 1; }
+
+message GetProfileByIdRequest { string id = 1; }
+
+message GetProfileByIdResponse { Profile bio = 1; }
+
+message UpdateProfileRequest { Profile bio = 1; }
+
+message UpdateProfileResponse { Profile bio = 1; }
+
+message RemoveProfileRequest { string id = 1; }
+
+message RemoveProfileResponse { string id = 1; }
+
+service ProfileService {
+  rpc createProfile(CreateProfileRequest) returns (CreateProfileResponse);
+  rpc getProfileById(GetProfileByIdRequest) returns (GetProfileByIdResponse);
+  rpc updateProfile(UpdateProfileRequest) returns (UpdateProfileResponse);
+  rpc removeProfile(RemoveProfileRequest) returns (RemoveProfileResponse);
+}

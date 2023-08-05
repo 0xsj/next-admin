@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "protoc": "npx protoc --plugin=protoc-gen-ts_proto=.\\node_modules\\.bin\\protoc-gen-ts_proto.cmd --ts_proto_opt=outputServices=grpc-js,env=node,useOptionals=messages,exportCommonSymbols=false,esModuleInterop=true --ts_proto_out=./src/generated -I=../proto profile.proto",
+    "build:proto": "proto-loader-gen-types --longs=String --enums=String --defaults --oneofs --grpcLib=@grpc/grpc-js --outDir=src/generated ../../proto/*.proto",
     "protoc-debug": "npx rimraf src/generated && npx mkdirp src/generated && npm run protoc",
     "start": "nodemon",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -23,6 +23,8 @@
     "typescript": "^5.1.6"
   },
   "dependencies": {
+    "@grpc/grpc-js": "^1.9.0",
+    "@grpc/proto-loader": "^0.7.8",
     "body-parser": "^1.20.2",
     "express": "^4.18.2",
     "lodash": "^4.17.21",

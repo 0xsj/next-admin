@@ -1,6 +1,9 @@
 syntax = "proto3";
 package token;
 
+message TokenServerTestRequest { string ping = 1; }
+message TokenServerTestResponse { string pong = 2; }
+
 message GenerateAccessTokenRequest { string payload = 1; }
 
 message GenerateAccessTokenResponse { string token = 1; }
@@ -19,3 +22,11 @@ message GenerateJWTRequest {
 }
 
 message GenerateJWTResponse { string token = 1; }
+
+service TokenService {
+  rpc TokenTest(TokenServerTestRequest) returns (TokenServerTestResponse);
+  rpc GenerateToken(GenerateAccessTokenRequest)
+      returns (GenerateAccessTokenResponse);
+  rpc ValidateToken(ValidateTokenRequest) returns (ValidateTokenResponse);
+  rpc GenerateJWT(GenerateJWTRequest) returns (GenerateAccessTokenResponse);
+}

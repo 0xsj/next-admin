@@ -24,3 +24,28 @@ message Account {
   uint64 created_at = 7;
   uint64 updated_at = 8;
 }
+
+// TEST
+message AccountServerTestRequest { string ping = 1; }
+message AccountServerTestResponse { string pong = 2; }
+
+// CREATE
+
+message CreateAccountRequest {
+  string email = 1;
+  Role role = 2;
+}
+
+message CreatAccountResponse { string id = 1; }
+
+// READ
+message GetAccountByIdRequest { string id = 1; }
+
+message GetAccountByIdResponse { Account account = 1; }
+
+// wrap services
+service AccountService {
+  rpc AccountTest(AccountServerTestRequest) returns (AccountServerTestResponse);
+  rpc CreateAccount(CreateAccountRequest) returns (CreatAccountResponse);
+  rpc GetAccountById(GetAccountByIdRequest) returns (GetAccountByIdResponse);
+}

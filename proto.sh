@@ -1,6 +1,6 @@
 #!/bin/bash
 
-tsServices=("authentication" "account" "profile" "token")  # Add your TS service names here
+tsServices=("authentication" "account" "profile" "token")
 gatewayServices=("authentication" "account" "profile" "token")
 
 function generateTS() {

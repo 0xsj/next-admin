@@ -2,3 +2,28 @@ syntax = "proto3";
 package authentication;
 
 option go_package = ".";
+
+enum Role {
+  ADMIN = 0;
+  USER = 1;
+  CREATOR = 2;
+}
+
+message Account {
+  string id = 1;
+  string email = 2;
+  string password = 3;
+  Role role = 4;
+  uint64 created_at = 5;
+  uint64 updated_at = 6;
+}
+
+message SignInByEmailRequest {
+  string email = 1;
+  string password = 2;
+}
+
+message SignInByEmailResponse {
+  string access_token = 2;
+  string refresh_token = 3;
+}

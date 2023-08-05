@@ -14,3 +14,10 @@ message ValidateTokenRequest { string token = 1; }
 message ValidateTokenResponse { string token = 1; }
 
 message InvalidateTokenResponse {}
+
+message GenerateJWTRequest {
+  string user_id = 2;
+  repeated string roles = 3;
+}
+
+message GenerateJWTResponse { string token = 1; }

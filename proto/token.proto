@@ -1,8 +1,6 @@
 syntax = "proto3";
 package token;
 
-option go_package = ".";
-
 message GenerateAccessTokenRequest { string payload = 1; }
 
 message GenerateAccessTokenResponse { string token = 1; }

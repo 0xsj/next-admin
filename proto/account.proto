@@ -16,4 +16,13 @@ enum Status {
   SUSPENDED = 3;
 }
 
-message Account {}
+message Account {
+  string id = 1;
+  string email = 2;
+  string password_hash = 3;
+  string password_salt = 4;
+  Role role = 5;
+  Status status = 6;
+  uint64 created_at = 7;
+  uint64 updated_at = 8;
+}

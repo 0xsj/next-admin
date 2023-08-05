@@ -1,0 +1,19 @@
+syntax = "proto3";
+package account;
+
+option go_package = ".";
+
+enum Role {
+  ADMIN = 0;
+  USER = 1;
+  CREATOR = 2;
+}
+
+enum Status {
+  PENDING = 0;
+  ACTIVE = 1;
+  DEACTIVATED = 2;
+  SUSPENDED = 3;
+}
+
+message Account {}

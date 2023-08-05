@@ -1,0 +1,4 @@
+syntax = "proto3";
+package confirmation;
+
+option go_package = ".";

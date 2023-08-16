@@ -47,9 +47,9 @@ function cleanTS() {
 
 # Update the paths to your actual directories
 generateTS "services/account"
-generateTS "services/authentication"
-generateTS "services/profile"
-generateTS "services/token"
-generateTS "services/gateway"
+# generateTS "services/authentication"
+# generateTS "services/profile"
+# generateTS "services/token"
+# generateTS "services/gateway"
 
 sleep 0.5

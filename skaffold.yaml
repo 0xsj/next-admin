@@ -1,0 +1,33 @@
+apiVersion: skaffold/v4beta6
+kind: Config
+metadata:
+  name: koastack
+build:
+  artifacts:
+    - image: account
+      context: services/account
+      buildpacks:
+        builder: gcr.io/buildpacks/builder:v1
+    - image: authentication
+      context: services/authentication
+      buildpacks:
+        builder: gcr.io/buildpacks/builder:v1
+    - image: gateway
+      context: services/gateway
+      buildpacks:
+        builder: gcr.io/buildpacks/builder:v1
+    - image: profile
+      context: services/profile
+      buildpacks:
+        builder: gcr.io/buildpacks/builder:v1
+    - image: token
+      context: services/token
+      buildpacks:
+        builder: gcr.io/buildpacks/builder:v1
+manifests:
+  rawYaml:
+    - k8s/account.yaml
+    - k8s/authentication.yaml
+    - k8s/gateway.yaml
+    - k8s/profile.yaml
+    - k8s/token.yaml

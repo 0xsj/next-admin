@@ -1,0 +1,40 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: profile
+spec:
+  type: ClusterIP
+  selector:
+    app: profile
+  ports:
+    - port: 5002
+      targetPort: 8082
+      name: profile
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: profile-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: profile
+  template:
+    metadata:
+      labels:
+        app: profile
+    spec:
+      containers:
+        - name: profile
+          image: profile
+          resources:
+            requests:
+              memory: "64Mi"
+              cpu: "250m"
+            limits:
+              memory: "128Mi"
+              cpu: 500m
+          ports:
+            - containerPort: 8082
+              name: http

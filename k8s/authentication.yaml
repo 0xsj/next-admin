@@ -1,0 +1,40 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: authentication
+spec:
+  type: ClusterIP
+  selector:
+    app: authentication
+  ports:
+    - port: 5001
+      targetPort: 8081
+      name: authentication
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: authentication-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: authentication
+  template:
+    metadata:
+      labels:
+        app: authentication
+    spec:
+      containers:
+        - name: authentication
+          image: authentication
+          resources:
+            requests:
+              memory: "64Mi"
+              cpu: "250m"
+            limits:
+              memory: "128Mi"
+              cpu: 500m
+          ports:
+            - containerPort: 8081
+              name: http

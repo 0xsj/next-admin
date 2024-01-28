@@ -1,0 +1,15 @@
+syntax = "proto3";
+option go_package = "./;pb";
+package pb;
+
+message GenerateTokenRequest {}
+
+message GenerateTokenResponse {}
+
+message VerifyTokenRequest {}
+
+message VerifyTokenResponse {}
+
+message RevokeTokenREquest {}
+
+message RevokeTokenResponse {}

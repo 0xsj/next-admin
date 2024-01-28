@@ -1,0 +1,13 @@
+syntax = "proto3";
+option go_package = "./;pb";
+package pb;
+
+message UserAccessQuery {}
+
+message Message {}
+
+message ConversationHasParticipant {}
+
+message Conversation {}
+
+message ConversationList {}

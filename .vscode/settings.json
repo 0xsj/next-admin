@@ -1,0 +1,13 @@
+// .vscode/settings.json
+
+{
+  "protoc": {
+    "path": "./path/to/protoc",
+    "compile_on_save": true,
+    "options": [
+      "--proto_path=${workspaceFolder}/internal/proto/src",
+      "--go_out=${workspaceFolder}/internal/proto/pb",
+      "--go-grpc_out=${workspaceFolder}/internal/proto/pb"
+    ]
+  }
+}

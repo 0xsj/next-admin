@@ -1,4 +1,4 @@
-module github.com/0xsj/kakao
+module kakao/platform
 
 go 1.21.6
 

@@ -1,0 +1,70 @@
+version: "3.7"
+
+networks:
+  kakao-net: {}
+
+services:
+  postgres:
+    container_name: kakao_postgres
+    image: postgres
+    volumes:
+      - pgdata:/var/lib/postgresql
+      - ./initdb.sql:/docker-entrypoint-initdb.d/init.sql
+    env_file: .env
+    networks:
+      - kakao-net
+    ports:
+      - 5432
+    healthcheck:
+      test: []
+      interval: 5s
+      timeout: 5s
+      retries: 5
+  api:
+    container_name: kakao_service_api
+    restart: always
+    build:
+      dockerfile: ./platform/endpoints/api/Dockerfile
+      context: .
+    env_file: .env
+    networks:
+      - kakao-net
+    ports:
+      - ${API_SERVICE_PORT}:${API_SERVICE_PORT}
+    depends_on:
+      - postgres
+    command: ./api
+  ws:
+    container_name: kakao_service_ws
+    restart: always
+    build:
+      dockerfile: ./platform/endpoints/ws/Dockerfile
+      context: .
+    env_file: .env
+    networks:
+      - kakao-net
+    ports:
+      - ${WS_SERVICE_PORT}:${WS_SERVICE_PORT}
+    depends_on:
+      - postgres
+    command: ./ws
+  account:
+    container_name: kakao_service_accounts
+    restart: always
+    build:
+      dockerfile: ./platform/services/account/Dockerfile
+      context: .
+    env_file: .env
+    networks:
+      - kakao-net
+    ports:
+      - ${ACCOUNT_SERVICE_PORT}
+    depends_on:
+      - postgres
+    command: ./account
+  conversation:
+    container_name: kakao_service_conversations
+  auth:
+    container_name: kakao_service_auth
+  token:
+    container_name: kakao_service_token

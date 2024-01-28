@@ -9,5 +9,6 @@
       "--go_out=${workspaceFolder}/internal/proto/pb",
       "--go-grpc_out=${workspaceFolder}/internal/proto/pb"
     ]
-  }
+},
+"nuxt.isNuxtApp": false
 }

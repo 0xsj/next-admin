@@ -3,5 +3,6 @@ package main
 import "fmt"
 
 func main() {
-	fmt.Println("conversation service")
+	fmt.Println("conversation main.go")
+	fmt.Println("server started")
 }

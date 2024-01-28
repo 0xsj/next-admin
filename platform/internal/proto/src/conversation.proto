@@ -2,12 +2,39 @@ syntax = "proto3";
 option go_package = "./;pb";
 package pb;
 
-message UserAccessQuery {}
+import "google/protobuf/empty.proto";
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/wrappers.proto";
 
-message Message {}
+message UserAccessQuery {
+  string user_id = 1;
+  string conversation_id = 2;
+}
 
-message ConversationHasParticipant {}
+message Message {
+  string id = 1;
+  google.protobuf.Timestamp created_at = 2;
+  string conversation_id = 3;
+  string author_id = 4;
+  string message = 5;
+}
 
-message Conversation {}
+message ConversationHasParticipant {
+  string conversation_id = 1;
+  string participant_id = 2;
+}
 
-message ConversationList {}
+message Conversation {
+  string id = 1;
+  string label = 2;
+  optional bool is_public = 3;
+  google.protobuf.Timestamp last_message_on = 4;
+  repeated ConversationHasParticipant participants = 5;
+  repeated Message messages = 6;
+}
+
+message ConversationList { repeated Conversation conversations = 1; }
+
+service ConversationService {
+  rpc CreateConversation(Conversation) returns (Conversation);
+}

@@ -40,6 +40,6 @@ func main() {
 	accountConnString := fmt.Sprintf("%s:%s", accountHost, accountPort)
 	fmt.Println("account connection string for grpc:   ", accountConnString)
 
-	socketHandler := &WebSocketClientHandler{}
+	// socketHandler := &WebSocketClientHandler{}
 
 }

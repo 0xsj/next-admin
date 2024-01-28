@@ -64,7 +64,21 @@ services:
     command: ./account
   conversation:
     container_name: kakao_service_conversations
-  auth:
-    container_name: kakao_service_auth
-  token:
-    container_name: kakao_service_token
+    restart: always
+    build:
+      dockerfile: ./platform/services/conversation/Dockerfile
+      context: .
+    env_file: .env
+    networks:
+      - kakao-net
+    ports:
+      - ${CONVERSATION_SERVICE_PORT}
+    depends_on:
+      - postgres
+    command: ./conversation
+  # auth:
+  #   container_name: kakao_service_auth
+  # token:
+  #   container_name: kakao_service_token
+volumes:
+  pgdata:

@@ -8,8 +8,19 @@ require (
 )
 
 require (
+	github.com/asaskevich/govalidator v0.0.0-20230301143203-a9d515a09cc2 // indirect
+	github.com/go-openapi/errors v0.21.0 // indirect
+	github.com/mitchellh/mapstructure v1.5.0 // indirect
+	github.com/oklog/ulid v1.3.1 // indirect
+	go.mongodb.org/mongo-driver v1.13.1 // indirect
+)
+
+require (
+	github.com/go-openapi/strfmt v0.22.0
 	github.com/golang/protobuf v1.5.3 // indirect
+	github.com/google/uuid v1.6.0
 	github.com/gorilla/websocket v1.5.1
+	github.com/jmoiron/sqlx v1.3.5
 	golang.org/x/net v0.19.0 // indirect
 	golang.org/x/sys v0.15.0 // indirect
 	golang.org/x/text v0.14.0 // indirect

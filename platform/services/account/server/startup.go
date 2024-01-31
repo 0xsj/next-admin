@@ -18,6 +18,6 @@ func NewAccountSerivce() (*AccountService, error) {
 	}
 
 	return &AccountService{
-		// c: controller,
+		// c: controlle r,
 	}, nil
 }

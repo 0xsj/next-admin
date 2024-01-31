@@ -17,7 +17,9 @@ func NewAccountController() (*AccountController, error) {
 	}
 	fmt.Println(repo)
 
-	cont := &AccountController{}
+	cont := &AccountController{
+		r: repo,
+	}
 
 	return cont, nil
 }

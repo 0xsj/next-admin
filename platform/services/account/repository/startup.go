@@ -26,7 +26,7 @@ func NewAccountRepository() (*AccountRepository, error) {
 
 	dbUser, exists := os.LookupEnv("POSTGRES_USER")
 	if !exists {
-		return nil, fmt.Errorf("no .env for PSOETGRES_USER ")
+		return nil, fmt.Errorf("no .env for POSTGRES_USER ")
 	}
 
 	dbPass, exists := os.LookupEnv("POSTGRES_PASSWORD")
@@ -46,7 +46,10 @@ func NewAccountRepository() (*AccountRepository, error) {
 		return nil, fmt.Errorf(err.Error())
 	}
 
-	// if _, err := db.Exec()
+	// check if connection is valid
+	if err := db.Ping(); err != nil {
+		return nil, fmt.Errorf("error pinging db")
+	}
 
 	repo := &AccountRepository{
 		db: db,
@@ -54,4 +57,10 @@ func NewAccountRepository() (*AccountRepository, error) {
 
 	return repo, nil
 
+}
+
+func (r *AccountRepository) Close() {
+	if r.db != nil {
+		r.db.Close()
+	}
 }

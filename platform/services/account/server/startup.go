@@ -3,6 +3,7 @@ package server
 import (
 	"kakao/platform/internal/proto/pb"
 	"kakao/platform/services/account/controller"
+	"kakao/platform/services/account/interfaces"
 )
 
 type AccountService struct {
@@ -17,6 +18,6 @@ func NewAccountSerivce() (*AccountService, error) {
 	}
 
 	return &AccountService{
-		c: controller,
+		// c: controller,
 	}, nil
 }

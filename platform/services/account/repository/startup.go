@@ -6,6 +6,7 @@ import (
 	"os"
 
 	"github.com/jmoiron/sqlx"
+	_ "github.com/lib/pq"
 )
 
 type AccountRepository struct {
@@ -14,6 +15,7 @@ type AccountRepository struct {
 }
 
 func NewAccountRepository() (*AccountRepository, error) {
+	fmt.Println("repository.startup.go")
 	dbHost, exists := os.LookupEnv("POSTGRES_HOST")
 	if !exists {
 		return nil, fmt.Errorf("no .env for POSTGRES_HOST")
@@ -34,12 +36,13 @@ func NewAccountRepository() (*AccountRepository, error) {
 		return nil, fmt.Errorf("no .env for POSTGRES_PASSWORD")
 	}
 
-	dbData, exists := os.LookupEnv("KAKAO_ACCOUNT_DB")
+	dbData, exists := os.LookupEnv("ACCOUNT_DB")
 	if !exists {
-		return nil, fmt.Errorf("no .env for KAKA_ACCOUNT_DB")
+		return nil, fmt.Errorf("no .env for KAKAO_ACCOUNT_DB")
 	}
 
 	dsn := fmt.Sprintf("host=%s user=%s password=%s dbname=%s port=%s sslmode=disable TimeZone=UTC", dbHost, dbUser, dbPass, dbData, dbPort)
+	fmt.Println(dsn)
 
 	db, err := sqlx.Connect("postgres", dsn)
 	if err != nil {

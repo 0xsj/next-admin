@@ -17,8 +17,7 @@ var upgrader = websocket.Upgrader{
 }
 
 func main() {
-	fmt.Println("Websocket main running")
-	fmt.Println("hello world")
+
 	wsPort, exists := os.LookupEnv("WS_SERVICE_PORT")
 
 	if !exists {

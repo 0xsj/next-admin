@@ -12,12 +12,12 @@ type AccountService struct {
 }
 
 func NewAccountSerivce() (*AccountService, error) {
-	controller, err := controller.NewAccountController()
+	cont, err := controller.NewAccountController()
 	if err != nil {
 		return nil, err
 	}
 
 	return &AccountService{
-		c: controller,
+		c: cont,
 	}, nil
 }

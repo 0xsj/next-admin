@@ -10,7 +10,7 @@ import (
 	"github.com/google/uuid"
 )
 
-func (c *AccountController) Createuser(in *pb.User) (*pb.User, error) {
+func (c *AccountController) CreateUser(in *pb.User) (*pb.User, error) {
 	// check we have an email present
 	if in.Email == "" {
 		return nil, fmt.Errorf("controller error: no email specified in CreateUser")

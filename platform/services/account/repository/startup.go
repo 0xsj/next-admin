@@ -15,11 +15,11 @@ type AccountRepository struct {
 }
 
 func NewAccountRepository() (*AccountRepository, error) {
-	fmt.Println("repository.startup.go")
-	// dbHost, exists := os.LookupEnv("POSTGRES_HOST")
-	// if !exists {
-	// 	return nil, fmt.Errorf("no .env for POSTGRES_HOST")
-	// }
+	fmt.Println("repository - startup.go")
+	dbHost, exists := os.LookupEnv("POSTGRES_HOST")
+	if !exists {
+		return nil, fmt.Errorf("no .env for POSTGRES_HOST")
+	}
 
 	dbPort, exists := os.LookupEnv("POSTGRES_PORT")
 	if !exists {
@@ -41,8 +41,7 @@ func NewAccountRepository() (*AccountRepository, error) {
 		return nil, fmt.Errorf("no .env for KAKAO_ACCOUNT_DB")
 	}
 
-	dsn := fmt.Sprintf("host=%s user=%s password=%s dbname=%s port=%s sslmode=disable TimeZone=UTC", "172.17.0.2", dbUser, dbPass, dbData, dbPort)
-	fmt.Println("1111111111", dsn)
+	dsn := fmt.Sprintf("host=%s user=%s password=%s dbname=%s port=%s sslmode=disable TimeZone=UTC", dbHost, dbUser, dbPass, dbData, dbPort)
 
 	db, err := sqlx.Connect("postgres", dsn)
 	if err != nil {

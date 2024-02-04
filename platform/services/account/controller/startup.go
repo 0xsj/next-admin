@@ -1,7 +1,6 @@
 package controller
 
 import (
-	"fmt"
 	"kakao/platform/services/account/interfaces"
 	"kakao/platform/services/account/repository"
 )
@@ -15,7 +14,7 @@ func NewAccountController() (*AccountController, error) {
 	if err != nil {
 		return nil, err
 	}
-	fmt.Println(repo)
+	// fmt.Println(repo)
 
 	cont := &AccountController{
 		r: repo,

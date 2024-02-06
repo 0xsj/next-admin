@@ -3,43 +3,42 @@ package enc
 import (
 	"crypto/sha1"
 	"crypto/sha256"
+	"encoding/hex"
 	"fmt"
 	"math/rand"
+	"time"
 )
 
-func GenerateSalt(length int)string {
-  
-  // generate the random seed 
-  
+const randCharset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ01234567890!@$%^&*()-_{}[]:;,.?~"
 
-  // create the byte array 
+func GenerateSalt(length int) string {
+	r := rand.New(rand.NewSource(time.Now().UnixNano()))
+	b := make([]byte, length)
 
-  // populate 
+	for i := range b {
+		b[i] = randCharset[r.Intn(len(randCharset))]
+	}
 
-  // return string
- return "" 
+	return string(b)
 }
 
-func SHA1EncryptionWithSalt(input string, salt string)string  {
-  // hash := sha1.New()
+func SHA1EncryptWithSalt(input string, salt string) string {
+	hash := sha1.New()
+	encodable_string := fmt.Sprintf("%s%s", input, salt)
+	hash.Write([]byte(encodable_string))
+	hib := hash.Sum(nil)
+	hs := hex.EncodeToString(hib)
 
-  // conct input and salt
+	return hs
 
-  // hash the string 
-
-  // return the string
-
-  return ""
 }
 
 func SHA256EncryptWithSalt(input string, salt string) string {
 	hash := sha256.New()
-  encodableString := fmt.Sprintf("%s%s", input, salt)
-  hash.Write([]byte(encodableString))
+	encodable_string := fmt.Sprintf("%s%s", input, salt)
+	hash.Write([]byte(encodable_string))
+	hib := hash.Sum(nil)
+	hs := hex.EncodeToString(hib)
 
-  bs := hash.Sum(nil)
-
-  return fmt.Sprintf("%s", bs)
-
-
+	return hs
 }

@@ -1,0 +1,16 @@
+syntax = "proto3";
+option go_package = ".;pb";
+package pb;
+
+message ShortenUrlRequest { string original_url = 1; }
+
+message ShortenUrlResponse { string short_url = 1; }
+
+message ExpandUrlRequest { string short_url = 1; }
+
+message ExpandUrlResponse { string original_url = 1; }
+
+service UrlShorteningService {
+  rpc ShortenUrl(ShortenUrlRequest) returns (ShortenUrlResponse);
+  rpc ExpandUrl(ExpandUrlRequest) returns (ExpandUrlResponse);
+}

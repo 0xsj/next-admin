@@ -68,11 +68,15 @@ export default function page() {
                 </CardHeader>
                 <CardContent>
                   <div className="p-5">
-                    <NeoButton>NeoBrutalism</NeoButton>
+                    <NeoButton>Neo Brutalism</NeoButton>
                   </div>
                   <Separator />
                   <div className="p-5">
-                    <Button>Base</Button>
+                    <Button>기본 / 베이스</Button>
+                  </div>
+                  <Separator />
+                  <div className="p-5">
+                    {/* <div>시작은 내부 HRMS로 하지만 </div> */}
                   </div>
                 </CardContent>
               </Card>

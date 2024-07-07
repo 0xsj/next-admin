@@ -60,8 +60,19 @@ export function DonutPieTextChart() {
   return (
     <Card className="flex flex-col">
       <CardHeader className="items-center pb-0">
-        <CardTitle>Lorem Ipsum</CardTitle>
-        <CardDescription>January - June 2024</CardDescription>
+        <CardTitle>위젯</CardTitle>
+        <CardDescription>
+          <div>
+            <h1>
+              <strong className="text-foreground">
+                시스템화 된 프론트엔드
+              </strong>
+              <br />
+              Like a lego block, we will provide you with highly customizable
+              and reusable components.
+            </h1>
+          </div>
+        </CardDescription>
       </CardHeader>
       <CardContent className="flex-1 pb-0">
         <ChartContainer

@@ -26,6 +26,8 @@ import {
 } from "@/components/ui/card";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import NeoButton from "@/components/custom/button";
+import { Separator } from "@/components/ui/separator";
 
 export default function page() {
   return (
@@ -35,6 +37,7 @@ export default function page() {
           <h2 className="text-3xl font-bold tracking-tight">
             Hi, Welcome back 👋
           </h2>
+
           <div className="hidden items-center space-x-2 md:flex">
             <CalendarDateRangePicker />
             <Button>Download</Button>
@@ -50,7 +53,30 @@ export default function page() {
           <TabsContent value="overview" className="space-y-4">
             <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
               <MultipleLineChart />
-              <DonutPieTextChart />
+              <Card>
+                <CardHeader>
+                  <CardTitle>디자인 시스템</CardTitle>
+                  <CardDescription>
+                    <div>한번 제작 하시면 다시 재사용 가능</div>
+                    <div>
+                      리액트로 커스텀 제작해드림으로 저희가 추천하시는 방식으로
+                      하시면 프론트엔드는 웹, 태블렛, 모바일등등 저희가
+                      제작해드리는 부품은 위에 새로운 스타일만 얹히면 새로운
+                      느낌 / 다른 어플 (view in light mode)
+                    </div>
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <div className="p-5">
+                    <NeoButton>NeoBrutalism</NeoButton>
+                  </div>
+                  <Separator />
+                  <div className="p-5">
+                    <Button>Base</Button>
+                  </div>
+                </CardContent>
+              </Card>
+              {/* <DonutPieTextChart /> */}
               <Card>
                 <CardHeader>
                   <CardTitle>Report an issue</CardTitle>
@@ -94,6 +120,7 @@ export default function page() {
                 </CardContent>
                 <CardFooter className="justify-between space-x-2">
                   <Button variant="ghost">Cancel</Button>
+                  {/* <NeoButton>Cancel</NeoButton> */}
                   <Button>Submit</Button>
                 </CardFooter>
               </Card>

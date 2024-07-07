@@ -1,5 +1,6 @@
 import { Icons } from "@/components/icons";
 import { NavItem, SidebarNavItem } from "@/types";
+import { IconBook, IconFile, IconPdf } from "@tabler/icons-react";
 
 export type User = {
   id: number;
@@ -119,9 +120,9 @@ export const navItems: NavItem[] = [
     label: "Dashboard",
   },
   {
-    title: "User",
+    title: "Directory",
     href: "/dashboard/user",
-    icon: "user",
+    icon: "bookUser",
     label: "user",
   },
   {
@@ -133,13 +134,19 @@ export const navItems: NavItem[] = [
   {
     title: "Profile",
     href: "/dashboard/profile",
-    icon: "profile",
+    icon: "settings",
     label: "profile",
   },
   {
     title: "Kanban",
     href: "/dashboard/kanban",
     icon: "kanban",
+    label: "kanban",
+  },
+  {
+    title: "Apps",
+    href: "/dashboard/apps",
+    icon: "plug",
     label: "kanban",
   },
   {

@@ -28,11 +28,11 @@ const chartData = [
 
 const chartConfig = {
   desktop: {
-    label: "Desktop",
+    label: "Lunch",
     color: "hsl(var(--chart-1))",
   },
   mobile: {
-    label: "Mobile",
+    label: "Dinner",
     color: "hsl(var(--chart-2))",
   },
 } satisfies ChartConfig;
@@ -41,7 +41,7 @@ export function MultipleLineChart() {
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Line Chart - Multiple</CardTitle>
+        <CardTitle>Visitors </CardTitle>
         <CardDescription>January - June 2024</CardDescription>
       </CardHeader>
       <CardContent>
@@ -56,7 +56,7 @@ export function MultipleLineChart() {
           >
             <CartesianGrid vertical={false} />
             <XAxis
-              dataKey='month'
+              dataKey="month"
               tickLine={false}
               axisLine={false}
               tickMargin={8}
@@ -64,16 +64,16 @@ export function MultipleLineChart() {
             />
             <ChartTooltip cursor={false} content={<ChartTooltipContent />} />
             <Line
-              dataKey='desktop'
-              type='monotone'
-              stroke='var(--color-desktop)'
+              dataKey="desktop"
+              type="monotone"
+              stroke="var(--color-desktop)"
               strokeWidth={2}
               dot={false}
             />
             <Line
-              dataKey='mobile'
-              type='monotone'
-              stroke='var(--color-mobile)'
+              dataKey="mobile"
+              type="monotone"
+              stroke="var(--color-mobile)"
               strokeWidth={2}
               dot={false}
             />
@@ -81,12 +81,12 @@ export function MultipleLineChart() {
         </ChartContainer>
       </CardContent>
       <CardFooter>
-        <div className='flex w-full items-start gap-2 text-sm'>
-          <div className='grid gap-2'>
-            <div className='flex items-center gap-2 font-medium leading-none'>
-              Trending up by 5.2% this month <TrendingUp className='h-4 w-4' />
+        <div className="flex w-full items-start gap-2 text-sm">
+          <div className="grid gap-2">
+            <div className="flex items-center gap-2 font-medium leading-none">
+              Trending up by 5.2% this month <TrendingUp className="h-4 w-4" />
             </div>
-            <div className='flex items-center gap-2 leading-none text-muted-foreground'>
+            <div className="flex items-center gap-2 leading-none text-muted-foreground">
               Showing total visitors for the last 6 months
             </div>
           </div>

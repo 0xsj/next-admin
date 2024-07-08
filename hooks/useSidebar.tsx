@@ -1,4 +1,4 @@
-import { create } from 'zustand';
+import { create } from "zustand";
 
 interface SidebarStore {
   isMinimized: boolean;
@@ -6,6 +6,6 @@ interface SidebarStore {
 }
 
 export const useSidebar = create<SidebarStore>((set) => ({
-  isMinimized: false,
-  toggle: () => set((state) => ({ isMinimized: !state.isMinimized }))
+  isMinimized: true,
+  toggle: () => set((state) => ({ isMinimized: !state.isMinimized })),
 }));

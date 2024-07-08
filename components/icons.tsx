@@ -30,6 +30,7 @@ import {
   UserX2Icon,
   Plug,
   BookUser,
+  Codesandbox,
   X,
 } from "lucide-react";
 
@@ -64,6 +65,7 @@ export const Icons = {
   laptop: Laptop,
   plug: Plug,
   bookUser: BookUser,
+  sandbox: Codesandbox,
   gitHub: ({ ...props }: LucideProps) => (
     <svg
       aria-hidden="true"

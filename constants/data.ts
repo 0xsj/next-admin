@@ -147,7 +147,13 @@ export const navItems: NavItem[] = [
     title: "Apps",
     href: "/dashboard/apps",
     icon: "plug",
-    label: "kanban",
+    label: "apps",
+  },
+  {
+    title: "Sandbox",
+    href: "/dashboard/sandbox",
+    icon: "sandbox",
+    label: "sandbox",
   },
   {
     title: "Login",
